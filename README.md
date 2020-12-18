@@ -26,8 +26,11 @@ The string
      1
 """
 ```
+
 corresponds to
+
 ![first_problem_image](images/problem1.png?raw=true)
+
 which is the first challenge of Lunar Lockout!
 
 
