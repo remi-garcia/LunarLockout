@@ -36,5 +36,5 @@ which is the first challenge of Lunar Lockout!
 
 
 ### Future work
-Adding docstrings!
-Adding the possibility to generate new puzzles is considered.
+- Adding docstrings!
+- Adding the possibility to generate new puzzles is considered.
