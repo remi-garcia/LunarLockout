@@ -12,5 +12,5 @@ end
 
 
 function read_problem(file::String)
-    return read_board(read((@__DIR__)*"/../instances/"*file, String))
+    return read_board(read(file, String))
 end
