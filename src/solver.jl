@@ -19,14 +19,21 @@ function find_solution(board::Matrix{Int})
         for _ in 1:nb_solutions
             current_solution = solutions[1]
             new_board = copy(board)
+            list_of_boards = Vector{Matrix{Int}}()
+            push!(list_of_boards, copy(new_board))
             for move in current_solution
                 move_robot!(new_board, move)
+                push!(list_of_boards, copy(new_board))
             end
             current_possible_moves = get_possible_moves(new_board)
             for move in current_possible_moves
+                move_robot!(new_board, move)
+                if new_board in list_of_boards
+                    move_robot!(new_board, reverse(move))
+                    continue
+                end
                 push!(solutions, copy(current_solution))
                 push!(solutions[end], move)
-                move_robot!(new_board, move)
                 if is_finished(new_board)
                     solution_found = true
                     push!(valid_solutions, copy(solutions[end]))
