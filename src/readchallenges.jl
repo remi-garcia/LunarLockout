@@ -1,3 +1,5 @@
+include("boardrobots.jl")
+
 """
     read_board(boardstr::String; autodetectformat::Bool=false, emptycell::Char=' ', usecolors::Bool=false)
 
@@ -29,8 +31,8 @@ function read_board(boardstr::String; autodetectformat::Bool=false, emptycell::C
         end
     end
     boardstr_lines = split(boardstr, "\n")
-    for i in 1:length(boardstr_lines)
-        for j in 1:length(boardstr_lines[i])
+    for i in 1:min(5,length(boardstr_lines))
+        for j in 1:min(5,length(boardstr_lines[i]))
             board[i,j] = parse(Int, boardstr_lines[i][j])
         end
     end

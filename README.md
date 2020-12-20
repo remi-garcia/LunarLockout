@@ -33,7 +33,4 @@ corresponds to
 
 which is the first challenge of Lunar Lockout!
 
-
-
-### Future work
-- Adding the possibility to generate new puzzles is considered.
+Instances from one move to be solved to fourteen moves are available in the archive [generated_instances.tar.xz](generated_instances.tar.xz).
