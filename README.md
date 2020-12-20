@@ -1,6 +1,6 @@
 # Lunar Lockout
 ### The rules
-Lunar Lockout is a single player puzzle game invented by Hiroshi Yamamoto in 1999 and refined by Nob Yoshigahara. The board for this game is a 5x5 grid on which robots can move. The goal is to move the Red robot (the one with a helmet) to the center. Robots can only move in four directions: Up, Left, Down and Right. Yet, once they start moving they cannot stop until being blocked by another robot.
+Lunar Lockout is a single player puzzle game invented by Hiroshi Yamamoto in 1999 and refined by Nob Yoshigahara. The board for this game is a 5x5 grid on which robots can move. The goal is to move the Red robot (the one with a helmet) to the center. Robots can only move in four directions: Up, Left, Down and Right. Yet, once they start moving they cannot stop until being blocked by another robot. The borders of the board do not block robots: crossing a border is not allowed.
 
 To play, select a starting position and try to find a solution.
 
