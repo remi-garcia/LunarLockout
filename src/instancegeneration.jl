@@ -67,3 +67,228 @@ function generate_random_instance(nb_move::Int)
     end
     return board
 end
+
+
+"""
+    generate_all_instances()
+
+
+"""
+function generate_all_instances(folder::String)
+    if folder[end] != '/'
+        folder = folder*"/"
+    end
+    board = initialize_board()
+    for i1 in 1:5
+        for j1 in 1:3
+            if j1 == 3 && i1 > 3
+                continue
+            end
+            for i in 1:5
+                for j in 1:5
+                    if i == 3 && j == 3
+                        continue
+                    end
+                    board = initialize_board()
+                    board[i1,j1] = 2
+                    if board[i,j] == 0
+                        board[i,j] = 1
+                        solutions = find_solution(board)
+                        if !isempty(solutions)
+                            if !isdir(folder*"$(length(solutions[1]))")
+                                mkdir(folder*"$(length(solutions[1]))")
+                            end
+                            write_board(board, folder*"$(length(solutions[1]))/1$(i)$(j)2$(i1)$(j1).txt")
+                        end
+                    end
+                end
+            end
+            for i2 in i1:5
+                for j2 in 1:5
+                    if i2 == i1 && j2 <= j1
+                        continue
+                    end
+                    for i in 1:5
+                        for j in 1:5
+                            if i == 3 && j == 3
+                                continue
+                            end
+                            board = initialize_board()
+                            board[i1,j1] = 2
+                            board[i2,j2] = 3
+                            if board[i,j] == 0
+                                board[i,j] = 1
+                                solutions = find_solution(board)
+                                if !isempty(solutions)
+                                    board[i1,j1] = 0
+                                    if !isempty(find_solution(board))
+                                        continue
+                                    end
+                                    board[i1,j1] = 2
+                                    board[i2,j2] = 0
+                                    if !isempty(find_solution(board))
+                                        continue
+                                    end
+                                    board[i2,j2] = 3
+                                    if !isdir(folder*"$(length(solutions[1]))")
+                                        mkdir(folder*"$(length(solutions[1]))")
+                                    end
+                                    write_board(board, folder*"$(length(solutions[1]))/1$(i)$(j)2$(i1)$(j1)3$(i2)$(j2).txt")
+                                end
+                            end
+                        end
+                    end
+                    for i3 in i2:5
+                        for j3 in 1:5
+                            if i3 == i2 && j3 <= j2
+                                continue
+                            end
+                            for i in 1:5
+                                for j in 1:5
+                                    if i == 3 && j == 3
+                                        continue
+                                    end
+                                    board = initialize_board()
+                                    board[i1,j1] = 2
+                                    board[i2,j2] = 3
+                                    board[i3,j3] = 4
+                                    if board[i,j] == 0
+                                        board[i,j] = 1
+                                        solutions = find_solution(board)
+                                        if !isempty(solutions)
+                                            board[i1,j1] = 0
+                                            if !isempty(find_solution(board))
+                                                continue
+                                            end
+                                            board[i1,j1] = 2
+                                            board[i2,j2] = 0
+                                            if !isempty(find_solution(board))
+                                                continue
+                                            end
+                                            board[i2,j2] = 3
+                                            board[i3,j3] = 0
+                                            if !isempty(find_solution(board))
+                                                continue
+                                            end
+                                            board[i3,j3] = 4
+                                            if !isdir(folder*"$(length(solutions[1]))")
+                                                mkdir(folder*"$(length(solutions[1]))")
+                                            end
+                                            write_board(board, folder*"$(length(solutions[1]))/1$(i)$(j)2$(i1)$(j1)3$(i2)$(j2)4$(i3)$(j3).txt")
+                                        end
+                                    end
+                                end
+                            end
+                            for i4 in i3:5
+                                for j4 in 1:5
+                                    if i4 == i3 && j4 <= j3
+                                        continue
+                                    end
+                                    for i in 1:5
+                                        for j in 1:5
+                                            if i == 3 && j == 3
+                                                continue
+                                            end
+                                            board = initialize_board()
+                                            board[i1,j1] = 2
+                                            board[i2,j2] = 3
+                                            board[i3,j3] = 4
+                                            board[i4,j4] = 5
+                                            if board[i,j] == 0
+                                                board[i,j] = 1
+                                                solutions = find_solution(board)
+                                                if !isempty(solutions)
+                                                    board[i1,j1] = 0
+                                                    if !isempty(find_solution(board))
+                                                        continue
+                                                    end
+                                                    board[i1,j1] = 2
+                                                    board[i2,j2] = 0
+                                                    if !isempty(find_solution(board))
+                                                        continue
+                                                    end
+                                                    board[i2,j2] = 3
+                                                    board[i3,j3] = 0
+                                                    if !isempty(find_solution(board))
+                                                        continue
+                                                    end
+                                                    board[i3,j3] = 4
+                                                    board[i4,j4] = 0
+                                                    if !isempty(find_solution(board))
+                                                        continue
+                                                    end
+                                                    board[i4,j4] = 5
+                                                    if !isdir(folder*"$(length(solutions[1]))")
+                                                        mkdir(folder*"$(length(solutions[1]))")
+                                                    end
+                                                    write_board(board, folder*"$(length(solutions[1]))/1$(i)$(j)2$(i1)$(j1)3$(i2)$(j2)4$(i3)$(j3)5$(i4)$(j4).txt")
+                                                end
+                                            end
+                                        end
+                                    end
+                                    for i5 in i4:5
+                                        for j5 in 1:5
+                                            if i5 == i4 && j5 <= j4
+                                                continue
+                                            end
+                                            for i in 1:5
+                                                for j in 1:5
+                                                    if i == 3 && j == 3
+                                                        continue
+                                                    end
+                                                    board = initialize_board()
+                                                    board[i1,j1] = 2
+                                                    board[i2,j2] = 3
+                                                    board[i3,j3] = 4
+                                                    board[i4,j4] = 5
+                                                    board[i5,j5] = 6
+                                                    if board[i,j] == 0
+                                                        board[i,j] = 1
+                                                        solutions = find_solution(board)
+                                                        if !isempty(solutions)
+                                                            current_length = length(solutions[1])
+                                                            board[i1,j1] = 0
+                                                            if !isempty(find_solution(board))
+                                                                continue
+                                                            end
+                                                            board[i1,j1] = 2
+                                                            board[i2,j2] = 0
+                                                            if !isempty(find_solution(board))
+                                                                continue
+                                                            end
+                                                            board[i2,j2] = 3
+                                                            board[i3,j3] = 0
+                                                            if !isempty(find_solution(board))
+                                                                continue
+                                                            end
+                                                            board[i3,j3] = 4
+                                                            board[i4,j4] = 0
+                                                            if !isempty(find_solution(board))
+                                                                continue
+                                                            end
+                                                            board[i4,j4] = 5
+                                                            board[i5,j5] = 0
+                                                            if !isempty(find_solution(board))
+                                                                continue
+                                                            end
+                                                            board[i5,j5] = 6
+                                                            if !isdir(folder*"$(length(solutions[1]))")
+                                                                mkdir(folder*"$(length(solutions[1]))")
+                                                            end
+                                                            write_board(board, folder*"$(length(solutions[1]))/1$(i)$(j)2$(i1)$(j1)3$(i2)$(j2)4$(i3)$(j3)5$(i4)$(j4)6$(i5)$(j5).txt")
+                                                        end
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return nothing
+end
