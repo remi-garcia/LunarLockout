@@ -29,8 +29,34 @@ The string
 
 corresponds to
 
-![first_problem_image](images/problem1.png?raw=true)
+![first_problem_image](images/challenge1.png?raw=true)
 
 which is the first challenge of Lunar Lockout!
 
+### Instances to play with
 Instances from one move to be solved to fourteen moves are available in the archive [generated_instances.tar.xz](generated_instances.tar.xz).
+
+
+### Challenge 39
+The challenge 39 is as follows:
+
+![challenge39_image](images/challenge39.png?raw=true)
+
+The solution proposed in the game needs 15 moves. The solver showed that there exists many solutions that only need 13 moves. An example is given below.
+
+<details>
+  <summary>Solution</summary>
+  1:	Green - Right
+  2:	Purple - Down
+  3:	Red - Left
+  4:	Orange - Down
+  5:	Yellow - Down
+  6:	Yellow - Right
+  7:	Yellow - Up
+  8:	Yellow - Left
+  9:	Orange - Down
+  10:	Orange - Right
+  11:	Green - Down
+  12:	Red - Up
+  13:	Red - Right
+</details>
