@@ -2,12 +2,12 @@ using Test
 
 include("../src/boardrobots.jl")
 include("../src/solver.jl")
-include("../src/problems.jl")
+include("../src/readchallenges.jl")
 
 
 @testset "Instances" begin
     for file in readdir((@__DIR__)*"/../instances/")
-        @test !isempty(find_solution(read_problem((@__DIR__)*"/../instances/"*file)))
+        @test !isempty(find_solution(read_challenge((@__DIR__)*"/../instances/"*file, autodetectformat=true)))
     end
 end
 
