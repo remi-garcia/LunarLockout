@@ -1,3 +1,10 @@
+"""
+    function find_solution(board::Matrix{Int})
+
+Find all the solutions that can be obtained in the least number of moves for the
+given `board`. The used algorithm avoids cycles and returns an empty vector of
+solutions if no solution exists for `board`.
+"""
 function find_solution(board::Matrix{Int})
     solutions = Vector{Vector{Move}}()
     current_possible_moves = get_possible_moves(board)
@@ -48,6 +55,14 @@ function find_solution(board::Matrix{Int})
 end
 
 
+"""
+    print_solution(_board::Matrix{Int}, solution::Vector{Move})
+
+Print a solution in the format
+1:   Color - Direction
+2:   Color - Direction
+etc.
+"""
 function print_solution(_board::Matrix{Int}, solution::Vector{Move})
     board = copy(_board)
     robotcolors = Dict{Int, String}([
@@ -81,6 +96,11 @@ function print_solution(_board::Matrix{Int}, solution::Vector{Move})
 end
 
 
+"""
+    print_solutions(board::Matrix{Int}, solutions::Vector{Vector{Move}})
+
+Print all solutions stored in `solutions`.
+"""
 function print_solutions(board::Matrix{Int}, solutions::Vector{Vector{Move}})
     i = 1
     for solution in solutions

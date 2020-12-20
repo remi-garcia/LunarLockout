@@ -1,3 +1,9 @@
+"""
+    read_board(boardstr::String; autodetectformat::Bool=false, emptycell::Char=' ', usecolors::Bool=false)
+
+Return a board represented as a `Matrix` from a `String`. Two formats are
+handled by default by setting `autodetectformat=true`.
+"""
 function read_board(boardstr::String; autodetectformat::Bool=false, emptycell::Char=' ', usecolors::Bool=false)
     board = initialize_board()
     if autodetectformat
@@ -31,7 +37,12 @@ function read_board(boardstr::String; autodetectformat::Bool=false, emptycell::C
     return board
 end
 
+"""
+    read_challenge(file::String; autodetectformat::Bool=false, emptycell::Char=' ', usecolors::Bool=false)
 
+Return a board represented as a `Matrix` from a text file. Two formats are
+handled by default by setting `autodetectformat=true`.
+"""
 function read_challenge(file::String; autodetectformat::Bool=false, emptycell::Char=' ', usecolors::Bool = false)
     return read_board(read(file, String), autodetectformat=autodetectformat, emptycell=emptycell, usecolors=usecolors)
 end
